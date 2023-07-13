@@ -1,5 +1,5 @@
 
-public class Contador extends Funcionario {
+public  class Contador extends Funcionario {
 
 	
 	public double getBonificacion() {

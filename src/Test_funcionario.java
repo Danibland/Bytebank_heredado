@@ -3,10 +3,10 @@ public class Test_funcionario {
 
 	public static void main(String[] args) {
 		
-		Funcionario daniel = new Funcionario();
+		Contador daniel = new Contador();
 		daniel.setNombre("Daniel");
 		daniel.setDocumento("1035865589");
-		daniel.setSalario(5000000);
+		daniel.setSalario(5000000); 
 		daniel.setTipo(0);
 		
 		System.out.println(daniel.getNombre());

@@ -3,8 +3,7 @@ public class Test_gerente {
 
 	public static void main(String[] args) {
 
-		Funcionario gerente = new Funcionario();
-		Funcionario gerente1 = new Funcionario();
+		Funcionario gerente1 = new Gerente();
 		Gerente gerente2 = new Gerente();
 		
 		gerente2.setNombre("Adriana");
