@@ -3,7 +3,7 @@ public class SistemaInterno {
 	
 	private String clave = "12345";
 
-	public boolean autentica(FuncionarioLog gerente) {
+	public boolean autentica(Autenticable gerente) {
 
 		boolean PuedeIniciarSesion = gerente.IniciarSesion(clave);
 		
@@ -20,4 +20,5 @@ public class SistemaInterno {
 
 	}
 
+	
 }

@@ -7,8 +7,10 @@ public class Test_SistemaInterno {
 		Gerente daniel = new Gerente();
 		Administrador adriana = new Administrador();
 		
+		
 		sistema.autentica(daniel);
 		sistema.autentica(adriana);
+		
 
 	}
 
