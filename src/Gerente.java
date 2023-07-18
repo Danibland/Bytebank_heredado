@@ -1,27 +1,27 @@
 
-public class Gerente extends Funcionario implements  Autenticable {
+public class Gerente extends Funcionario implements Autenticable {
+	
+	private AutenticacionUtil util;
+	
+	public Gerente() {
+		this.util = new AutenticacionUtil();
+	}
 
-	
-	
 	public double getBonificacion() {
 		System.out.println("Ejecutar desde gerente");
-		return 2000;//super.getSalario() +(this.getSalario()*0.05);
+		return 2000;
 	}
 
 	@Override
 	public void setClave(String clave) {
-		// TODO Auto-generated method stub
-		
+		this.setClave(clave);
+
 	}
 
 	@Override
 	public boolean IniciarSesion(String clave) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.util.IniciarSesion(clave);
+
 	}
-	
-	
-	
-	
-	
+
 }
