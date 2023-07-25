@@ -26,16 +26,28 @@ public abstract class Cuenta {
 			this.agencia = agencia;
 		}
 		total++;
-		System.out.println("el total de cuentas creadas es: " + total);
-		;
 
 	}
 
-	public abstract void depositar(double valor);
+	public abstract void depositar(double valor) throws SaldoinsuficienteEx;
 
-	public abstract boolean retirar(double valor);
+	public void retirar(double valor) throws SaldoinsuficienteEx {
+		if (this.saldo < valor) {
+			throw new SaldoinsuficienteEx("No tienes saldo suficiente");
+		}
 
-	public abstract boolean transferir(double valor, Cuenta cuenta);
+		this.saldo -= valor;
+	}
+
+	public void transferir(double valor, Cuenta cuenta) throws SaldoinsuficienteEx {
+
+		if (this.saldo < valor) {
+			throw new SaldoinsuficienteEx("No tienes saldo suficiente para la transaccion");
+		}
+		this.saldo -= valor;
+		cuenta.saldo += valor;
+
+	}
 
 	public double Getsaldo() {
 		return this.saldo;

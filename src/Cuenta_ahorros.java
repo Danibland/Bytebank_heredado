@@ -7,16 +7,13 @@ public class Cuenta_ahorros extends Cuenta {
 	}
 
 	@Override
-	public boolean retirar(double valor) {
+	public void retirar(double valor) {
+		double comision = 0.2;
+		try {
+			super.retirar(valor + comision);
+		} catch (SaldoinsuficienteEx e) {
 
-		if (this.saldo >= valor) {
-
-			this.saldo -= valor;
-
-			return true;
-		} else {
-
-			return false;
+			e.printStackTrace();
 		}
 	}
 
@@ -27,15 +24,15 @@ public class Cuenta_ahorros extends Cuenta {
 	}
 
 	@Override
-	public boolean transferir(double valor, Cuenta cuenta) {
-		if (valor <= this.saldo) {
-			this.saldo -= valor;
-			cuenta.saldo += valor;
-			return true;
-		} else {
+	public void transferir(double valor, Cuenta cuenta) {
+		double comision = 0.5;
+		try {
+			super.transferir(valor + comision, cuenta);
+		} catch (SaldoinsuficienteEx e) {
 
-			return false;
+			e.printStackTrace();
 		}
+
 	}
 
 }

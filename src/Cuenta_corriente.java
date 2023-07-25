@@ -7,16 +7,9 @@ public class Cuenta_corriente extends Cuenta {
 	}
 
 	@Override
-	public boolean retirar(double valor) {
-
-		if (this.saldo >= valor) {
-			this.saldo -= valor;
-
-			return true;
-		} else {
-
-			return false;
-		}
+	public void retirar(double valor) throws SaldoinsuficienteEx {
+		double comision = 0.2;
+		super.retirar(valor + comision);
 	}
 
 	@Override
@@ -26,14 +19,9 @@ public class Cuenta_corriente extends Cuenta {
 	}
 
 	@Override
-	public boolean transferir(double valor, Cuenta cuenta) {
-		if (valor <= this.saldo) {
-			this.saldo -= valor;
-			cuenta.saldo += valor;
-			return true;
-		} else {
+	public void transferir(double valor, Cuenta cuenta) throws SaldoinsuficienteEx {
+		double comision = 0.5;
+		super.transferir(valor + comision, cuenta);
 
-			return false;
-		}
 	}
 }
